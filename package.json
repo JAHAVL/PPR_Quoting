@@ -1,0 +1,35 @@
+{
+  "name": "paver-quoting-tool",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@react-google-maps/api": "^2.20.6",
+    "@types/uuid": "^10.0.0",
+    "better-sqlite3": "^11.10.0",
+    "framer-motion": "^12.18.1",
+    "leaflet": "^1.9.4",
+    "next": "^12.3.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-leaflet": "^4.2.1",
+    "sqlite3": "^5.1.7",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/leaflet": "^1.9.18",
+    "@types/node": "^18.19.111",
+    "@types/react": "^18.3.23",
+    "@types/react-dom": "^18.3.7",
+    "eslint": "^8.28.0",
+    "eslint-config-next": "^12.3.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^4.9.3"
+  }
+}

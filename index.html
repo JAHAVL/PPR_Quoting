@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treasure Coast Paver Restoration - Quoting Tool</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            padding: 0 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main {
+            padding: 4rem 0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .footer {
+            display: flex;
+            flex: 1;
+            padding: 2rem 0;
+            border-top: 1px solid #eaeaea;
+            justify-content: center;
+            align-items: center;
+            max-height: 100px;
+        }
+
+        .title {
+            margin: 0;
+            line-height: 1.2;
+            font-size: 2.8rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            text-align: center;
+            letter-spacing: -0.5px;
+            color: #0D6936;
+        }
+
+        .subtitle {
+            margin-top: 0.5rem;
+            line-height: 1.5;
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #666;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 3rem;
+        }
+
+        .grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .card {
+            margin: 1.5rem 0;
+            padding: 2rem;
+            width: 100%;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            background-color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(13, 105, 54, 0.05);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            margin: 0 0 1.8rem 0;
+            font-size: 1.6rem;
+            color: #0D6936;
+            text-align: center;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .card h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #0D6936;
+            border-radius: 2px;
+        }
+
+        .formGroup {
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .formGroup label {
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        .formGroup input {
+            padding: 1rem 1.2rem;
+            font-size: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .formGroup input:focus {
+            outline: none;
+            border-color: #0D6936;
+            box-shadow: 0 0 0 3px rgba(13, 105, 54, 0.1);
+        }
+
+        .button {
+            width: 100%;
+            padding: 1.1rem;
+            margin-top: 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            background-color: #0D6936;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(13, 105, 54, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button:hover {
+            background-color: #0a5c2e;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(13, 105, 54, 0.35);
+        }
+        
+        .button:active {
+            transform: translateY(1px);
+        }
+
+        .quoteItem {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .quoteItem:last-of-type {
+            border-bottom: none;
+        }
+
+        .price {
+            font-weight: 600;
+            background-color: rgba(13, 105, 54, 0.08);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            color: #0D6936;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(to right, rgba(13, 105, 54, 0.1), rgba(13, 105, 54, 0.5), rgba(13, 105, 54, 0.1));
+            width: 100%;
+            margin: 1.5rem 0;
+            border-radius: 2px;
+        }
+
+        .quoteTotal {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            margin-top: 1rem;
+        }
+
+        .totalPrice {
+            font-size: 1.6rem;
+            color: #0D6936;
+            text-shadow: 0 1px 2px rgba(13, 105, 54, 0.1);
+            background-color: rgba(13, 105, 54, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        #quoteResults {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .grid {
+                flex-direction: row;
+                gap: 2rem;
+            }
+            
+            .card {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <main class="main">
+            <h1 class="title">Treasure Coast Paver Restoration</h1>
+            <h2 class="subtitle">Quoting Tool</h2>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>Job Information</h3>
+                    <div class="formGroup">
+                        <label for="squareFootage">Square Footage:</label>
+                        <input
+                            id="squareFootage"
+                            type="number"
+                            placeholder="Enter square footage"
+                            min="0"
+                            step="any"
+                        />
+                    </div>
+                    <div class="formGroup">
+                        <label for="pricePerSqFt">Price per Square Foot ($):</label>
+                        <input
+                            id="pricePerSqFt"
+                            type="number"
+                            placeholder="Enter price per sq. ft."
+                            min="0"
+                            step="any"
+                        />
+                    </div>
+                    <div class="formGroup" style="flex-direction: row; align-items: center;">
+                        <input
+                            id="grassRemoval"
+                            type="checkbox"
+                            style="width: auto; margin-right: 10px;"
+                        />
+                        <label for="grassRemoval">Grass Removal Required ($1.00/sq.ft)</label>
+                    </div>
+                    <div class="formGroup" style="flex-direction: row; align-items: center;">
+                        <input
+                            id="wallsRequired"
+                            type="checkbox"
+                            onchange="toggleWallInput()"
+                            style="width: auto; margin-right: 10px;"
+                        />
+                        <label for="wallsRequired">Walls Required</label>
+                    </div>
+                    <div id="wallsLengthContainer" style="display: none;">
+                        <div class="formGroup">
+                            <label for="wallsLength">Wall Length (linear feet):</label>
+                            <input
+                                id="wallsLength"
+                                type="number"
+                                step="0.1"
+                                placeholder="Enter wall length in linear feet"
+                            />
+                        </div>
+                        <div class="formGroup" style="flex-direction: row; align-items: center;">
+                            <input
+                                id="wallCap"
+                                type="checkbox"
+                                style="width: auto; margin-right: 10px;"
+                            />
+                            <label for="wallCap">Include Wall Cap ($8.00/linear ft with cap, $6.00/linear ft without)</label>
+                        </div>
+                    </div>
+                    <button
+                        class="button"
+                        onclick="calculateQuote()"
+                    >
+                        Calculate Quote
+                    </button>
+                </div>
+
+                <div class="card" id="quoteResults">
+                    <h3>Quote Breakdown</h3>
+                    <div class="quoteItem">
+                        <span>Materials Price:</span>
+                        <span class="price" id="materialsPrice">$0.00</span>
+                    </div>
+                    <div class="quoteItem">
+                        <span id="laborLabel">Labor Cost:</span>
+                        <span class="price" id="laborCost">$0.00</span>
+                    </div>
+                    <div class="quoteItem" id="grassRemovalItem" style="display: none;">
+                        <span>Grass Removal ($1.00/sq.ft):</span>
+                        <span class="price" id="grassRemovalCost">$0.00</span>
+                    </div>
+                    <div class="quoteItem" id="wallsItem" style="display: none;">
+                        <span id="wallsLabel">Walls:</span>
+                        <span class="price" id="wallsCost">$0.00</span>
+                    </div>
+                    <div class="quoteItem">
+                        <span>Material Handler ($17/hr):</span>
+                        <span class="price" id="materialHandlerCost">$0.00</span>
+                    </div>
+                    <div class="quoteItem">
+                        <span>Disposal Fee:</span>
+                        <span class="price" id="disposalFee">$0.00</span>
+                    </div>
+                    <div class="quoteItem">
+                        <span>Office Staff Fee (5%):</span>
+                        <span class="price" id="officeStaffFee">$0.00</span>
+                    </div>
+                    <div class="quoteItem">
+                        <span>Marketing Fee (10%):</span>
+                        <span class="price" id="marketingFee">$0.00</span>
+                    </div>
+                    <div class="quoteItem">
+                        <span>Business Profit (40%):</span>
+                        <span class="price" id="businessProfit">$0.00</span>
+                    </div>
+                    <div class="quoteItem">
+                        <span>Sales Commission (5%):</span>
+                        <span class="price" id="salesCommission">$0.00</span>
+                    </div>
+                    <div class="quoteItem">
+                        <span>Supervisor Fee (10%):</span>
+                        <span class="price" id="supervisorFee">$0.00</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="quoteTotal">
+                        <span>TOTAL CHARGE:</span>
+                        <span class="totalPrice" id="totalCharge">$0.00</span>
+                    </div>
+                    <button id="confirmButton" class="button" style="margin-top: 1.5rem; display: none;" onclick="confirmQuote()">
+                        Confirm Final Quote
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Treasure Coast Paver Restoration &copy; 2025</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleWallInput() {
+            const wallsRequired = document.getElementById('wallsRequired').checked;
+            document.getElementById('wallsLengthContainer').style.display = wallsRequired ? 'block' : 'none';
+            // Reset the wall cap checkbox when walls are toggled off
+            if (!wallsRequired) {
+                document.getElementById('wallCap').checked = false;
+            }
+        }
+        
+        function calculateQuote() {
+            // Get input values
+            const squareFootageInput = document.getElementById('squareFootage');
+            const pricePerSqFtInput = document.getElementById('pricePerSqFt');
+            const grassRemovalCheckbox = document.getElementById('grassRemoval');
+            const wallsRequiredCheckbox = document.getElementById('wallsRequired');
+            const wallsLengthInput = document.getElementById('wallsLength');
+            
+            const sqft = parseFloat(squareFootageInput.value);
+            const materialsPricePerSqFt = parseFloat(pricePerSqFtInput.value);
+            const grassRemovalRequired = grassRemovalCheckbox.checked;
+            const wallsRequired = wallsRequiredCheckbox.checked;
+            
+            // Validate inputs
+            if (isNaN(sqft) || isNaN(materialsPricePerSqFt) || sqft <= 0 || materialsPricePerSqFt <= 0) {
+                alert('Please enter valid positive numbers for square footage and material price.');
+                return;
+            }
+            
+            // Validate wall length if required
+            let wallsLength = 0;
+            if (wallsRequired) {
+                wallsLength = parseFloat(wallsLengthInput.value);
+                if (isNaN(wallsLength) || wallsLength <= 0) {
+                    alert('Please enter a valid wall length in linear feet.');
+                    return;
+                }
+            }
+            
+            // Determine labor cost based on square footage
+            let laborCostPerSqFt = 1.75; // Default for < 1000 sq ft
+            if (sqft >= 1000 && sqft <= 2000) {
+                laborCostPerSqFt = 1.50;
+            } else if (sqft > 3000) {
+                laborCostPerSqFt = 1.25;
+            }
+            
+            // Update labor cost label
+            document.getElementById('laborLabel').textContent = `Labor Cost ($${laborCostPerSqFt.toFixed(2)}/sq.ft):`;
+            
+            // Fixed costs
+            const grassRemovalCostPerSqFt = 1.00;
+            const wallCapRequired = document.getElementById('wallCap').checked;
+            const wallsCostPerLinearFt = wallCapRequired ? 8.00 : 6.00;
+            const materialHandlerHourlyRate = 17;
+            
+            // Calculate grass removal cost if required
+            const grassRemovalCost = grassRemovalRequired ? sqft * grassRemovalCostPerSqFt : 0;
+            
+            // Calculate walls cost if required
+            const wallsCost = wallsRequired ? wallsLength * wallsCostPerLinearFt : 0;
+            
+            // Calculate material handler time based on square footage
+            // Reference: 800 sqft job needs 6 hours (3 hours per day for 2 days)
+            const materialHandlerHours = (sqft / 800) * 6;
+            const materialHandlerCost = materialHandlerHours * materialHandlerHourlyRate;
+            
+            // Calculate disposal fee based on square footage
+            // Reference: 800 sqft job has a $300 disposal fee
+            const disposalFee = (sqft / 800) * 300;
+            
+            // Calculate values
+            const materialsPrice = sqft * materialsPricePerSqFt;
+            const laborCost = sqft * laborCostPerSqFt;
+            
+            // Calculate direct costs (fixed costs that don't change based on percentages)
+            const directCosts = materialsPrice + laborCost + grassRemovalCost + wallsCost + materialHandlerCost + disposalFee;
+            
+            // We need to solve for the total charge where:
+            // 1. Office staff fee is 5% of the total
+            // 2. Marketing fee is 10% of the total
+            // 3. Business profit is 40% of the total
+            // 4. Sales commission is 5% of the total
+            // 5. Supervisor fee is 10% of the total
+            // This means 70% of the total goes to these percentages, leaving 30% for direct costs
+            // So: directCosts = 0.30 * totalCharge
+            // Therefore: totalCharge = directCosts / 0.30
+            
+            const totalCharge = directCosts / 0.30;
+            
+            // Calculate all fees based on the total charge
+            const officeStaffFee = totalCharge * 0.05;
+            const marketingFee = totalCharge * 0.10;
+            const businessProfit = totalCharge * 0.40;
+            const salesCommission = totalCharge * 0.05;
+            const supervisorFee = totalCharge * 0.10;
+            
+            // For verification: the sum of direct costs and all percentage-based fees should equal totalCharge
+            // directCosts + officeStaffFee + marketingFee + businessProfit + salesCommission + supervisorFee = totalCharge
+            
+            // Update display
+            document.getElementById('materialsPrice').textContent = formatCurrency(materialsPrice);
+            document.getElementById('laborCost').textContent = formatCurrency(laborCost);
+            
+            // Handle grass removal display
+            if (grassRemovalRequired) {
+                document.getElementById('grassRemovalItem').style.display = 'flex';
+                document.getElementById('grassRemovalCost').textContent = formatCurrency(grassRemovalCost);
+            } else {
+                document.getElementById('grassRemovalItem').style.display = 'none';
+            }
+            
+            // Handle walls display
+            if (wallsRequired) {
+                document.getElementById('wallsItem').style.display = 'flex';
+                document.getElementById('wallsLabel').textContent = `Walls (${wallCapRequired ? '$8.00' : '$6.00'}/linear ft${wallCapRequired ? ' with cap' : ' without cap'}):`;
+                document.getElementById('wallsCost').textContent = formatCurrency(wallsCost);
+            } else {
+                document.getElementById('wallsItem').style.display = 'none';
+            }
+            
+            document.getElementById('materialHandlerCost').textContent = formatCurrency(materialHandlerCost);
+            document.getElementById('disposalFee').textContent = formatCurrency(disposalFee);
+            document.getElementById('officeStaffFee').textContent = formatCurrency(officeStaffFee);
+            document.getElementById('marketingFee').textContent = formatCurrency(marketingFee);
+            document.getElementById('businessProfit').textContent = formatCurrency(businessProfit);
+            document.getElementById('salesCommission').textContent = formatCurrency(salesCommission);
+            document.getElementById('supervisorFee').textContent = formatCurrency(supervisorFee);
+            document.getElementById('totalCharge').textContent = formatCurrency(totalCharge);
+            
+            // Show results
+            document.getElementById('quoteResults').style.display = 'block';
+            document.getElementById('confirmButton').style.display = 'block';
+        }
+        
+        function formatCurrency(value) {
+            return '$' + value.toLocaleString('en-US', { 
+                minimumFractionDigits: 2, 
+                maximumFractionDigits: 2 
+            });
+        }
+        
+        function confirmQuote() {
+            const confirmButton = document.getElementById('confirmButton');
+            
+            if (confirmButton.textContent.trim() === 'Confirm Final Quote') {
+                // Show confirmation message
+                alert('Quote Confirmed!');
+                
+                // Change button to Print Quote
+                confirmButton.textContent = 'Print Quote';
+            } else {
+                // Print the quote
+                window.print();
+            }
+        }
+    </script>
+</body>
+</html>

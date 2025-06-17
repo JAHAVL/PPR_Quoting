@@ -1,0 +1,23 @@
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  color: var(--ppr-primary);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.backButton:hover {
+  background: linear-gradient(135deg, rgba(40, 40, 45, 0.4), rgba(30, 30, 35, 0.3));
+  color: var(--accent-blue-light);
+  transform: translateX(-2px);
+}
+
+.backButton svg {
+  transition: transform 0.2s ease;
+}
+
+.backButton:hover svg {
+  transform: translateX(-2px);
+}

@@ -1,0 +1,125 @@
+/* PPR Branding Colors - Synced with theme.ts */
+:root {
+  /* Colors */
+  --ppr-primary: #1e73be; /* Primary blue color */
+  --ppr-secondary: #23a455; /* Secondary green color */
+  --ppr-accent: #ff6b00; /* Orange accent */
+  --ppr-dark: #333333;
+  --ppr-light: #f7f7f7;
+  --ppr-gray: #6c757d;
+
+  /* RGB versions for rgba() glows */
+  --ppr-primary-rgb: 30, 115, 190; /* for #1e73be */
+  --ppr-secondary-rgb: 35, 164, 85; /* for #23a455 */
+  
+  /* Transparent versions for overlays and toggle switches */
+  --ppr-primary-transparent: rgba(30, 115, 190, 0.3); /* Semi-transparent primary blue */
+  
+  /* Glass Effect Colors */
+  --glass-bg: rgba(18, 18, 18, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-highlight: rgba(255, 255, 255, 0.05);
+  --glass-shadow: rgba(0, 0, 0, 0.5);
+  
+  /* Accent Colors */
+  --accent-blue: #0288d1;
+  --accent-blue-light: #29b6f6;
+  --accent-green: #00c853;
+  --accent-green-light: #69f0ae;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-glow-blue: 0 0 15px rgba(0, 163, 255, 0.3);
+  --shadow-glow-green: 0 0 15px rgba(0, 230, 118, 0.3);
+
+  /* Font Sizes */
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
+  --font-md: 1rem;
+  --font-lg: 1.25rem;
+  --font-xl: 1.5rem;
+  --font-xxl: 2rem;
+  
+  /* Typography */
+  --font-primary: 'Montserrat', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-primary);
+  color: var(--ppr-light);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: transparent; /* Allow BackgroundAnimation component to be visible */
+  position: relative;
+  overflow-x: hidden;
+  /* background-attachment: fixed; /* Not needed if body bg is transparent */
+  min-height: 100vh;
+  z-index: 0; /* Establishes stacking context, page content will be above BackgroundAnimation */
+}
+
+a {
+  color: var(--ppr-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--ppr-secondary);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Improved touch target sizes for mobile */
+button, 
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+select,
+.touch-target {
+  min-height: 44px; /* Apple's recommended minimum touch target size */
+  min-width: 44px;
+}
+
+/* Responsive font sizes */
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* html::before, html::after, and associated keyframes removed to use BackgroundAnimation component */
+
+/* Remove default dark mode - use our custom theme */
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: light;
+  }
+  body {
+    color: var(--ppr-dark);
+    background: var(--ppr-light);
+  }
+}

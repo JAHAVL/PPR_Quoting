@@ -1,0 +1,12 @@
+.pageContainer {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  min-height: 100vh;
+  padding: 0 var(--space-md); /* Consistent page padding */
+  margin: 0 auto; /* Center content if max-width is applied */
+  max-width: 1200px; /* Optional: if you want a max width for page content */
+  width: 100%;
+  display: flex; /* Added for flex layout */
+  flex-direction: column; /* Added for flex layout */
+}

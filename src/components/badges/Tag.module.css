@@ -1,0 +1,78 @@
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tag:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+  filter: brightness(1.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Quote Types */
+.install {
+  background: linear-gradient(135deg, rgba(30, 115, 190, 0.4) 0%, rgba(19, 90, 158, 0.6) 100%);
+  color: white;
+  border: 1px solid rgba(30, 115, 190, 0.25);
+}
+
+.clean {
+  background: linear-gradient(135deg, rgba(41, 128, 185, 0.4) 0%, rgba(26, 88, 137, 0.6) 100%);
+  color: white;
+  border: 1px solid rgba(41, 128, 185, 0.25);
+}
+
+.seal {
+  background: linear-gradient(135deg, rgba(142, 68, 173, 0.4) 0%, rgba(108, 52, 131, 0.6) 100%);
+  color: white;
+  border: 1px solid rgba(142, 68, 173, 0.25);
+}
+
+.repair {
+  background: linear-gradient(135deg, rgba(211, 84, 0, 0.4) 0%, rgba(160, 64, 0, 0.6) 100%);
+  color: white;
+  border: 1px solid rgba(211, 84, 0, 0.25);
+}
+
+/* Quote Statuses */
+.approved {
+  background: linear-gradient(135deg, rgba(39, 174, 96, 0.4) 0%, rgba(30, 132, 73, 0.6) 100%);
+  color: white;
+  border: 1px solid rgba(39, 174, 96, 0.25);
+}
+
+.pending {
+  background: linear-gradient(135deg, rgba(243, 156, 18, 0.4) 0%, rgba(211, 84, 0, 0.6) 100%);
+  color: white;
+  border: 1px solid rgba(243, 156, 18, 0.25);
+}
+
+.completed {
+  background: linear-gradient(135deg, rgba(46, 204, 113, 0.4) 0%, rgba(39, 174, 96, 0.6) 100%);
+  color: white;
+  border: 1px solid rgba(46, 204, 113, 0.25);
+}
+
+.rejected {
+  background: linear-gradient(135deg, rgba(231, 76, 60, 0.4) 0%, rgba(192, 57, 43, 0.6) 100%);
+  color: white;
+  border: 1px solid rgba(231, 76, 60, 0.25);
+}
+
+.default {
+  background: linear-gradient(135deg, rgba(52, 73, 94, 0.4) 0%, rgba(44, 62, 80, 0.6) 100%);
+  color: white;
+  border: 1px solid rgba(52, 73, 94, 0.25);
+}

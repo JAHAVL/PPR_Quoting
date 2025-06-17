@@ -1,0 +1,655 @@
+/* Activity container styles - chat-like interface */
+.activityContainer {
+  /* Reduced top padding to give more vertical space for chat */
+  padding: var(--space-sm) var(--space-md) var(--space-md);
+  border-radius: var(--radius-md);
+  background-color: rgba(18, 18, 18, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* Reduced margin above container */
+  margin-top: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  /* Increased height to provide more vertical room for messages */
+  height: 420px;
+  max-height: 420px;
+  color: var(--ppr-light); /* Ensure white font color throughout */
+}
+
+.chatMessages {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs); /* Reduced from space-sm to make spacing tighter */
+  padding-right: var(--space-sm);
+}
+
+/* Custom scrollbar for chat messages */
+.chatMessages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chatMessages::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.chatMessages::-webkit-scrollbar-thumb {
+  background: var(--ppr-primary);
+  border-radius: 3px;
+}
+
+/* Activity/chat item styles */
+.activityItem {
+  display: flex;
+  align-items: flex-start;
+  padding: var(--space-sm);
+  border-radius: var(--radius-md);
+  background-color: rgba(255, 255, 255, 0.05);
+  margin-bottom: var(--space-xs);
+  margin-top: var(--space-xs);
+  animation: fadeIn 0.3s ease-in-out;
+  color: var(--ppr-light); /* Ensure white font color */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* System update container styles - exactly matching quote calculator's nice container */
+.specialEventContainer {
+  margin-top: var(--space-xs); /* Further reduced to match other elements */
+  background: linear-gradient(135deg, rgba(18, 18, 18, 0.95) 0%, rgba(30, 115, 190, 0.6) 100%);
+  border-radius: var(--radius-lg);
+  padding: 0;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(30, 115, 190, 0.5);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: var(--space-xs); /* Reduced from space-sm */
+  /* Start smaller by default */
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+  transition: min-height 0.3s ease;
+}
+
+/* Expanded state */
+.specialEventContainer.expanded {
+  min-height: 180px;
+}
+
+.specialEventContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(30, 115, 190, 0.8), transparent);
+}
+
+.specialEventTitle {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  padding: var(--space-xs) var(--space-md);
+  color: var(--ppr-light);
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.titleContent {
+  display: flex;
+  align-items: center;
+}
+
+.eventTitleText {
+  margin-left: var(--space-xs);
+}
+
+.activityIcon {
+  margin-right: var(--space-xs);
+  color: var(--ppr-primary);
+  min-width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.specialEventContent {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: var(--font-md);
+  color: var(--ppr-light);
+  font-weight: 500;
+  padding: var(--space-sm) var(--space-md);
+  text-align: left;
+  text-shadow: none;
+}
+
+/* Meta info (date/time) under details */
+.specialEventMeta {
+  font-size: var(--font-sm);
+  color: rgba(255, 255, 255, 0.7);
+  margin: var(--space-xs) var(--space-md);
+  text-align: right;
+}
+
+.activityDate {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.systemMessage {
+  background-color: rgba(0, 163, 255, 0.1);
+  border-left: 3px solid var(--ppr-primary);
+}
+
+.userMessage {
+  background-color: rgba(0, 255, 144, 0.15); /* very light green for our own messages */ /* lighter green */
+  border-left: 3px solid var(--accent-green);
+  align-self: flex-end;
+  margin-left: var(--space-xl);
+}
+
+/* Styles for messages from other users (left aligned) */
+.otherMessage {
+  background-color: rgba(0, 60, 30, 0.35); /* darker green but semi-transparent to let background through */ /* darker green shade */
+  border-right: 3px solid var(--accent-green);
+  align-self: flex-start;
+  margin-right: var(--space-xl);
+}
+
+/* Already defined above */
+
+.activityContent {
+  flex: 1;
+}
+
+.activityTitle {
+  font-weight: 500;
+  margin-bottom: var(--space-xs);
+  word-break: break-word;
+  color: var(--ppr-light); /* Ensure white font color */
+}
+
+.activityDate {
+  font-size: var(--font-sm);
+  color: rgba(255, 255, 255, 0.7); /* Lighter white for secondary text */
+  text-align: right;
+}
+
+/* Chat input area */
+.chatInputContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  width: 100%;
+  margin-top: var(--space-sm);
+}
+
+.inputButtonWrapper {
+  display: flex;
+  flex: 1;
+  position: relative;
+  margin-top: auto;
+}
+
+/* Removed chatInputContainer */
+
+.chatFooter {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+  align-items: center;
+  width: 100%;
+  background: transparent;
+}
+
+.noteTypeSelect {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--ppr-light);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-md);
+  padding: var(--space-xs) var(--space-sm);
+  font-size: var(--font-sm);
+  min-width: 100px;
+  height: 36px; /* Match height with button */
+  flex-shrink: 0;
+}
+
+.noteTypeSelect:focus {
+  outline: none;
+  border-color: var(--ppr-primary);
+}
+
+.noteInput {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: var(--space-xs) var(--space-sm);
+  color: var(--ppr-light);
+  font-size: var(--font-sm);
+  height: 36px; /* Match height with select and button */
+}
+
+.noteInput:focus {
+  outline: none;
+  border-color: var(--ppr-primary);
+  background-color: rgba(0, 163, 255, 0.1);
+}
+
+.noteButton, .sendButton {
+  background-color: var(--ppr-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--space-xs) var(--space-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px; /* Consistent height */
+  min-width: 60px;
+  font-size: var(--font-sm);
+}
+
+.noteButton:hover {
+  background-color: var(--accent-blue-light);
+  transform: translateY(-1px);
+}
+
+.noteButton:active {
+  transform: translateY(0);
+}
+
+/* Removed old inputButtonWrapper styles */
+
+/* SystemUpdateContainer expanded section layout & scrolling */
+.expandedContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  max-height: 260px; /* keeps container from growing too tall but allows more content */
+  overflow-y: auto;
+  padding: 0 var(--space-md) var(--space-md);
+  scrollbar-width: thin;
+}
+
+/* Custom scrollbar for expandedContent */
+.expandedContent::-webkit-scrollbar {
+  width: 5px;
+}
+
+.expandedContent::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  margin: var(--space-sm) 0;
+}
+
+.expandedContent::-webkit-scrollbar-thumb {
+  background: rgba(30, 115, 190, 0.7);
+  border-radius: 3px;
+}
+
+.expandedContent::-webkit-scrollbar-thumb:hover {
+  background: rgba(30, 115, 190, 0.9);
+}
+
+/* Button container for expanded view */
+.buttonContainer {
+  display: flex;
+  gap: var(--space-xs);
+  align-items: center;
+}
+
+/* Add button styles */
+.addNoteButton {
+  color: var(--ppr-light);
+  background-color: transparent;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid var(--ppr-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* View button styles */
+.viewButton {
+  color: var(--ppr-light);
+  background-color: transparent;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid var(--ppr-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.addNoteButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.addNoteButton:active {
+  transform: translateY(0);
+}
+
+/* Long press (edit/delete) mode */
+.longPressing {
+  transform: scale(0.95);
+  position: relative;
+  z-index: 20; /* Higher z-index while in action mode */
+}
+
+.longPressing::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 5;
+  border-radius: 12px;
+  pointer-events: none; /* Let events pass through to underlying elements */
+  transition: backdrop-filter 0.3s ease;
+}
+
+.actionOverlay,
+.deleteOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  z-index: 10; /* Higher than the blur layer */
+}
+
+.actionButtons {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.deleteButton, .editButton {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+.deleteButton {
+  background-color: var(--ppr-error);
+  background-color: rgba(255, 59, 59, 0); /* Transparent background by default */
+  transition: background-color 0.2s ease;
+}
+
+.deleteButton:hover {
+  background-color: rgba(255, 59, 59, 1); /* Fully visible background on hover */
+}
+
+.editButton {
+  background-color: rgba(61, 138, 214, 0); /* Transparent background by default */
+  transition: background-color 0.2s ease;
+}
+
+.editButton:hover {
+  background-color: rgba(61, 138, 214, 1); /* Fully visible background on hover */
+}
+
+.deleteButton:hover, .editButton:hover {
+  transform: scale(1.1);
+}
+
+.deleteButton:hover {
+  background-color: #ff3b3b;
+}
+
+.editButton:hover {
+  background-color: #3d8ad6;
+}
+
+.deleteButton:active, .editButton:active {
+  transform: scale(0.95);
+}
+
+/* Bubble blur input */
+.bubbleNoteInput {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm);
+  margin: var(--space-xs) 0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.noteInputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  width: 100%;
+}
+
+.noteList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  /* Remove max-height to let container handle scrolling */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding-right: var(--space-xs);
+  /* Remove overflow to let container handle scrolling */
+}
+
+/* Custom scrollbar for noteList */
+.noteList::-webkit-scrollbar {
+  width: 4px;
+}
+
+.noteList::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+
+.noteList::-webkit-scrollbar-thumb {
+  background: rgba(30, 115, 190, 0.6);
+  border-radius: 2px;
+}
+
+.noteList li {
+  background-color: rgba(22, 100, 173, 0.35);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  min-height: 50px;
+  font-size: var(--font-sm);
+  color: white;
+  word-break: break-word;
+  position: relative;
+  border-left: 3px solid rgba(30, 115, 190, 0.9);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-xs);
+}
+
+.noteSender {
+  font-weight: bold;
+  color: var(--ppr-light);
+  margin-bottom: var(--space-3xs);
+  font-size: var(--font-md); /* Match details font */
+}
+
+.noteContent {
+  color: var(--ppr-light);
+  margin-bottom: var(--space-3xs);
+  font-size: var(--font-md); /* Match details font */
+}
+
+.noteTimestamp {
+  font-size: var(--font-sm); /* Slightly smaller but still readable */
+  color: rgba(255, 255, 255, 0.6);
+  align-self: flex-end;
+  font-style: italic;
+}
+
+/* Edit mode styling */
+.editContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.editInput {
+  width: 100%;
+  min-height: 80px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(30, 115, 190, 0.6);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm);
+  color: var(--ppr-light);
+  font-size: var(--font-md);
+  resize: vertical;
+}
+
+.editInput:focus {
+  outline: none;
+  border-color: var(--ppr-primary);
+  background-color: rgba(0, 163, 255, 0.1);
+}
+
+.editActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+}
+
+.saveButton, .cancelButton {
+  padding: var(--space-2xs) var(--space-sm);
+  border-radius: var(--radius-md);
+  border: none;
+  font-size: var(--font-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.saveButton {
+  background-color: var(--accent-blue);
+  color: white;
+}
+
+.saveButton:disabled {
+  background-color: var(--color-gray-dark);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.saveButton:hover:not(:disabled) {
+  background-color: #3d8ad6;
+  transform: translateY(-1px);
+}
+
+.cancelButton {
+  background-color: var(--color-gray-dark);
+  color: white;
+}
+
+.cancelButton:hover {
+  background-color: var(--color-gray-medium);
+  transform: translateY(-1px);
+}
+
+.saveButton:active:not(:disabled), .cancelButton:active {
+  transform: translateY(0);
+}
+
+/* Ensure note input isn’t full width (slightly narrower for nicer fit) */
+.noteInput {
+  max-width: 100%;
+  width: 100%;
+  min-height: 40px;
+  padding: var(--space-sm);
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: var(--radius-md);
+  margin: var(--space-xs) 0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  color: var(--ppr-light);
+  font-size: var(--font-md);
+}
+
+.chatInput {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  color: var(--ppr-light);
+  font-size: var(--font-md);
+  min-height: 36px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+  width: 100%;
+}
+
+.chatInput:focus {
+  outline: none;
+  border-color: var(--ppr-primary);
+  background-color: rgba(0, 163, 255, 0.1);
+}
+
+
+
+.noteButton:hover, .sendButton:hover {
+  background-color: var(--accent-blue-light);
+  transform: translateY(-1px);
+}
+
+.noteButton:active, .sendButton:active {
+  transform: translateY(0);
+}

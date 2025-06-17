@@ -1,0 +1,132 @@
+.main {
+  padding: var(--space-lg);
+  width: 100%;
+  color: var(--ppr-light);
+  position: relative;
+  z-index: 1;
+}
+
+.pageHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: var(--space-lg);
+  position: relative;
+  width: 100%;
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  width: 100%;
+  margin-bottom: var(--space-xl);
+}
+
+.pageIcon {
+  width: 36px;
+  height: 36px;
+  margin-right: var(--space-sm);
+  color: var(--ppr-primary);
+}
+
+.pageTitle {
+  color: var(--ppr-primary);
+  font-size: var(--font-xl);
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  background: linear-gradient(to right, var(--ppr-primary), var(--accent-blue-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 3px rgba(0, 163, 255, 0.3));
+}
+
+.createButton {
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.createButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.createButton:active {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(0.95);
+}
+
+/* Table container with proper spacing for the centered add button */
+.tableContainer {
+  position: relative;
+  margin-top: var(--space-xl);
+  z-index: 1;
+}
+
+.createButton:hover {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.createButton:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.createButton:active {
+  background: rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: scale(0.95);
+}
+
+.tableSection {
+  position: relative;
+  z-index: 1;
+}
+
+.tableSection::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: 
+    radial-gradient(circle at 75% 25%, rgba(0, 163, 255, 0.25), transparent 40%),
+    radial-gradient(circle at 25% 75%, rgba(0, 230, 118, 0.25), transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(0, 163, 255, 0.2), transparent 35%),
+    radial-gradient(circle at 15% 15%, rgba(0, 230, 118, 0.2), transparent 35%);
+  z-index: -1;
+  border-radius: var(--radius-lg);
+  filter: blur(15px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main {
+    padding: var(--space-md);
+  }
+  
+  /* Keep pageHeader horizontal layout on mobile to preserve button alignment */
+}

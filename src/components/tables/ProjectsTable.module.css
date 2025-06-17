@@ -1,0 +1,23 @@
+.projectsTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--space-md);
+}
+
+.centerAlign {
+  text-align: center;
+}
+
+.rightAlign {
+  text-align: right;
+}
+
+.statusBadge {
+  display: inline-block;
+}
+
+.typeBadge {
+  display: inline-block;
+}
+
+/* Add any project-specific table styles here */

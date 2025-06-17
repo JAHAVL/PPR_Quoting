@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+  # Pinning to v4 as v5+ requires Next.js >=13.5.0
+  pinned_version = "4.41.3"

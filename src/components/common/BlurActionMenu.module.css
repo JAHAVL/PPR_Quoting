@@ -1,0 +1,93 @@
+/* BlurActionMenu.module.css */
+
+.actionOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  z-index: 10; /* Higher than the blur layer */
+  transition: opacity 0.3s ease;
+}
+
+.hidden {
+  pointer-events: none;
+}
+
+.actionButtons {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.deleteButton, .editButton {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.deleteButton {
+  background-color: rgba(255, 59, 59, 0); /* Transparent background by default */
+}
+
+.deleteButton:hover {
+  background-color: rgba(255, 59, 59, 1); /* Fully visible background on hover */
+}
+
+.editButton {
+  background-color: rgba(61, 138, 214, 0); /* Transparent background by default */
+}
+
+.editButton:hover {
+  background-color: rgba(61, 138, 214, 1); /* Fully visible background on hover */
+}
+
+.deleteButton:hover, .editButton:hover {
+  transform: scale(1.1);
+}
+
+.deleteButton:hover {
+  background-color: #ff3b3b;
+}
+
+.editButton:hover {
+  background-color: #3d8ad6;
+}
+
+.deleteButton:active, .editButton:active {
+  transform: scale(0.95);
+}
+
+/* Long press (edit/delete) mode */
+.longPressing {
+  transform: scale(0.95);
+  position: relative;
+  z-index: 20; /* Higher z-index while in action mode */
+}
+
+.longPressing::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 5;
+  border-radius: 12px;
+  pointer-events: none; /* Let events pass through to underlying elements */
+  transition: backdrop-filter 0.3s ease;
+}

@@ -1,0 +1,94 @@
+.header {
+  background: transparent;
+  padding: 1.5rem var(--space-lg) 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  border-bottom: 1px solid rgba(70, 70, 80, 0.2);
+}
+
+.title {
+  color: var(--ppr-primary);
+  font-size: 2.2rem;
+  margin: 0;
+  text-shadow: 0 0 15px rgba(0, 163, 255, 0.4);
+  font-weight: 600;
+  letter-spacing: 1px;
+  background: linear-gradient(to right, var(--ppr-primary), var(--accent-blue-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 5px rgba(0, 163, 255, 0.3));
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  height: 35px;
+  width: auto;
+  filter: drop-shadow(0 0 8px rgba(0, 163, 255, 0.4));
+  transition: filter 0.3s ease;
+  object-fit: contain;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 12px rgba(0, 163, 255, 0.6));
+}
+
+.subHeader {
+  padding: 1rem var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.searchSection {
+  margin: 0.5rem auto 1rem;
+  max-width: 600px;
+  width: 100%;
+}
+
+.backButton {
+  position: absolute;
+  left: var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.backButton a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ppr-primary);
+  transition: all 0.2s ease;
+}
+
+.backButton a:hover {
+  transform: translateX(-3px);
+  color: var(--accent-blue-light);
+}
+
+.backButtonContainer {
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .subHeader {
+    padding: 0.75rem 1rem;
+  }
+}

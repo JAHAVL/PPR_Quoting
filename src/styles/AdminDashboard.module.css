@@ -1,0 +1,178 @@
+/* Use PPR theme variables from globals.css */
+
+.header {
+  background: transparent;
+  padding: 1.5rem var(--space-lg) 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  border-bottom: 1px solid rgba(70, 70, 80, 0.2);
+}
+
+.dashboard {
+  padding: var(--space-lg);
+  width: 100%;
+  color: var(--ppr-light);
+}
+
+.title {
+  color: var(--ppr-primary);
+  font-size: 2.2rem;
+  margin: 0;
+  text-shadow: 0 0 15px rgba(0, 163, 255, 0.4);
+  font-weight: 600;
+  letter-spacing: 1px;
+  background: linear-gradient(to right, var(--ppr-primary), var(--accent-blue-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 5px rgba(0, 163, 255, 0.3));
+}
+
+.searchSection {
+  margin: 1.5rem auto;
+  max-width: 600px;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  position: relative;
+  z-index: 1;
+  max-width: 100%;
+}
+
+/* Make the 5th card centered */
+.cardContainer > a:nth-child(5),
+.cardContainer > div:nth-child(5) {
+  grid-column: 1 / span 2;
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+.cardContainer::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: 
+    radial-gradient(circle at 75% 25%, rgba(0, 163, 255, 0.25), transparent 40%),
+    radial-gradient(circle at 25% 75%, rgba(0, 230, 118, 0.25), transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(0, 163, 255, 0.2), transparent 35%),
+    radial-gradient(circle at 15% 15%, rgba(0, 230, 118, 0.2), transparent 35%);
+  z-index: -1;
+  border-radius: var(--radius-lg);
+  filter: blur(15px);
+}
+
+.cardContainer > a,
+.cardContainer > div {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Always maintain 2-column grid */
+@media (max-width: 768px) {
+  .cardContainer > a,
+  .cardContainer > div {
+    width: 100%;
+  }
+}
+
+.card {
+  background-color: var(--ppr-dark);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+  color: var(--ppr-light);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.cardIcon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  color: var(--ppr-primary);
+}
+
+.card h3 {
+  color: var(--ppr-primary);
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.card p {
+  color: var(--ppr-gray);
+  font-size: 0.9rem;
+}
+
+.statsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.statCard {
+  background-color: var(--ppr-dark);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+.statCard h4 {
+  color: var(--ppr-light);
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.statNumber {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--ppr-primary);
+  margin-bottom: 0.5rem;
+}
+
+.statDescription {
+  color: var(--ppr-gray);
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 1rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.25rem;
+  }
+  
+  .cardContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,44 @@
+.chartContainer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.barContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+}
+
+.bar {
+  width: 80%;
+  min-width: 8px;
+  max-width: 20px;
+  border-radius: 2px 2px 0 0;
+  transition: height 0.3s ease;
+  position: relative;
+}
+
+.value {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.6rem;
+  color: var(--ppr-dark);
+}
+
+.label {
+  font-size: 0.6rem;
+  margin-top: 0.25rem;
+  color: var(--ppr-gray);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}

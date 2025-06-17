@@ -1,0 +1,30 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.backgroundCircle {
+  fill: none;
+  stroke-linecap: round;
+}
+
+.progressCircle {
+  fill: none;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease;
+}
+
+.percentageText {
+  font-size: 0.8rem;
+  font-weight: 600;
+  fill: var(--ppr-dark);
+}
+
+.label {
+  font-size: 0.7rem;
+  margin-top: 0.25rem;
+  color: var(--ppr-gray);
+  text-align: center;
+}

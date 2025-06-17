@@ -1,0 +1,52 @@
+.circleContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circleSvg {
+  transform: rotate(-90deg);
+  overflow: visible;
+}
+
+.circleBackground {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.1);
+}
+
+.circleProgress {
+  fill: none;
+  stroke: var(--accent-blue-light);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease;
+}
+
+.circleGlow {
+  fill: none;
+  stroke: var(--accent-blue);
+  stroke-linecap: round;
+  filter: blur(4px);
+  opacity: 0.5;
+  transition: stroke-dashoffset 0.5s ease;
+}
+
+.percentageText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ppr-light);
+  text-shadow: 0 0 5px rgba(0, 163, 255, 0.5);
+}
+
+.circleContainer:hover .circleProgress {
+  stroke: var(--accent-blue);
+}
+
+.circleContainer:hover .circleGlow {
+  opacity: 0.8;
+  filter: blur(6px);
+}

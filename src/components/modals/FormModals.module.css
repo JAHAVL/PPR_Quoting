@@ -1,0 +1,132 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: var(--font-sm);
+  font-weight: 500;
+  color: var(--ppr-dark);
+  font-family: var(--font-primary);
+}
+
+.required {
+  color: var(--ppr-accent);
+  margin-left: 2px;
+}
+
+.input,
+.select,
+.textarea {
+  padding: 10px 12px;
+  border: 1px solid rgba(30, 115, 190, 0.3);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-md);
+  transition: all 0.2s ease;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--ppr-dark);
+  font-family: var(--font-primary);
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--ppr-primary);
+  box-shadow: 0 0 0 2px rgba(var(--ppr-primary-rgb), 0.2);
+  background-color: white;
+}
+
+.textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.errorMessage {
+  background-color: rgba(255, 107, 0, 0.1);
+  color: var(--ppr-accent);
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-sm);
+  margin-bottom: 12px;
+  border-left: 3px solid var(--ppr-accent);
+}
+
+.submitButton {
+  background-color: var(--ppr-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 10px 20px;
+  font-size: var(--font-md);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-primary);
+  min-height: 44px;
+}
+
+.submitButton:hover {
+  background-color: #1859a0;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.submitButton:disabled {
+  background-color: rgba(var(--ppr-primary-rgb), 0.5);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.cancelButton {
+  background-color: transparent;
+  color: var(--ppr-gray);
+  border: 1px solid rgba(var(--ppr-primary-rgb), 0.2);
+  border-radius: var(--radius-sm);
+  padding: 10px 20px;
+  font-size: var(--font-md);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-primary);
+  min-height: 44px;
+}
+
+.cancelButton:hover {
+  background-color: rgba(var(--ppr-primary-rgb), 0.05);
+  color: var(--ppr-primary);
+  border-color: var(--ppr-primary);
+}
+
+.cancelButton:disabled {
+  color: #aaa;
+  border-color: #eee;
+  cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .form {
+    gap: 12px;
+  }
+  
+  .input,
+  .select,
+  .textarea {
+    padding: 8px 10px;
+  }
+  
+  .submitButton,
+  .cancelButton {
+    padding: 8px 16px;
+  }
+}

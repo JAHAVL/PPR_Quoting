@@ -1,0 +1,116 @@
+.quotesTable {
+  /* Enhanced styles for quotes table */
+  position: relative;
+  overflow: hidden;
+}
+
+.quotesTable::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(30, 115, 190, 0.8), transparent);
+  z-index: 1;
+}
+
+.centerAlign {
+  text-align: center !important;
+}
+
+.rightAlign {
+  text-align: right !important;
+}
+
+/* Status badges */
+.statusBadge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: var(--font-xs);
+  font-weight: 600;
+  text-align: center;
+  min-width: 80px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.statusBadge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
+}
+
+.statusPending {
+  background: linear-gradient(135deg, rgba(255, 193, 7, 0.2) 0%, rgba(255, 193, 7, 0.1) 100%);
+  color: #ffc107;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.statusApproved {
+  background: linear-gradient(135deg, rgba(35, 164, 85, 0.2) 0%, rgba(35, 164, 85, 0.1) 100%);
+  color: var(--ppr-secondary);
+  border: 1px solid rgba(35, 164, 85, 0.3);
+}
+
+.statusRejected {
+  background: linear-gradient(135deg, rgba(220, 53, 69, 0.2) 0%, rgba(220, 53, 69, 0.1) 100%);
+  color: #dc3545;
+  border: 1px solid rgba(220, 53, 69, 0.3);
+}
+
+.statusCompleted {
+  background: linear-gradient(135deg, rgba(40, 167, 69, 0.2) 0%, rgba(40, 167, 69, 0.1) 100%);
+  color: #28a745;
+  border: 1px solid rgba(40, 167, 69, 0.3);
+}
+
+/* Quote type badges */
+.typeBadge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  font-size: var(--font-xs);
+  font-weight: 600;
+  text-align: center;
+  min-width: 70px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.typeBadge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
+}
+
+.typeInstall {
+  background: linear-gradient(135deg, rgba(30, 115, 190, 0.2) 0%, rgba(30, 115, 190, 0.1) 100%);
+  color: var(--ppr-primary);
+  border: 1px solid rgba(30, 115, 190, 0.3);
+}
+
+.typeClean {
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.2) 0%, rgba(0, 123, 255, 0.1) 100%);
+  color: #007bff;
+  border: 1px solid rgba(0, 123, 255, 0.3);
+}
+
+.typeSeal {
+  background: linear-gradient(135deg, rgba(111, 66, 193, 0.2) 0%, rgba(111, 66, 193, 0.1) 100%);
+  color: #6f42c1;
+  border: 1px solid rgba(111, 66, 193, 0.3);
+}
+
+.typeRepair {
+  background: linear-gradient(135deg, rgba(255, 107, 0, 0.2) 0%, rgba(255, 107, 0, 0.1) 100%);
+  color: var(--ppr-accent);
+  border: 1px solid rgba(255, 107, 0, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .statusBadge, .typeBadge {
+    padding: 0.15rem 0.5rem;
+    min-width: 60px;
+  }
+}
